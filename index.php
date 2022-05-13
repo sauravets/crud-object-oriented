@@ -1,3 +1,12 @@
+<?php
+// include file-
+include 'model.php';
+$obj = new Model();
+// insert records-
+if(isset($_POST['submit'])){
+   $obj->insertRecords($post);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,5 +22,29 @@
 </head>
 <body>
     <h1 class="text-center text-info">Crud operation in php using oops</h1>
+    <div class="container">
+        <form action="index.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter your name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" placeholder="Enter your email" class="form-control">
+            </div>
+            <div class="form-group">            
+                <input type="submit" name="submit" value="submit" class="btn btn-info">
+            </div>
+        </form><br>
+        <h4 class="text-center text-danger">Display Records</h4>
+        <table class="table table-bordered">
+            <tr class="bg-primary text-center">
+                <th>S.no.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

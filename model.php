@@ -18,10 +18,10 @@ class Model
         }
     }
     // function define for insert records-
-    public function insertRecords()
+    public function insertRecords($post)
     {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
+        $name = $post['name'];
+        $email = $post['email'];
         $sql = "INSERT INTO users (name,email) VALUES ('$name','$email')";
         $result = $this->conn->query($sql);
         if ($result) {

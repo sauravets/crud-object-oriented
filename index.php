@@ -4,7 +4,7 @@ include 'model.php';
 $obj = new Model();
 // insert records-
 if(isset($_POST['submit'])){
-   $obj->insertRecords();
+   $obj->insertRecords($post);
 //    print_r($obj);
 }
 // $data = $obj->displayRecord();
@@ -59,8 +59,7 @@ if(isset($_POST['submit'])){
             $data = $obj->displayRecord();
             $sno = 1;
             foreach($data as $value)
-            {
-                var_dump($value);
+            {            
                 ?>
                 <tr class="text-center">
                     <td><?php echo $sno++;?></td>

@@ -4,8 +4,10 @@ include 'model.php';
 $obj = new Model();
 // insert records-
 if(isset($_POST['submit'])){
-   $obj->insertRecords($post);
+   $obj->insertRecords();
+//    print_r($obj);
 }
+// $data = $obj->displayRecord();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +25,14 @@ if(isset($_POST['submit'])){
 <body>
     <h1 class="text-center text-info">Crud operation in php using oops</h1>
     <div class="container">
+        <!-- success message -->
+        <?php
+        if(isset($_GET['msg']) && $_GET['msg'] == 'ins'){
+            echo '<div class="alert alert-primary" role="alert">
+            Record inserted successfully..!!
+            </div>';
+        }
+        ?>
         <form action="index.php" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -44,6 +54,28 @@ if(isset($_POST['submit'])){
                 <th>Email</th>
                 <th>Action</th>
             </tr>
+            <?php
+            //display records-
+            $data = $obj->displayRecord();
+            $sno = 1;
+            foreach($data as $value)
+            {
+                var_dump($value);
+                ?>
+                <tr class="text-center">
+                    <td><?php echo $sno++;?></td>
+                    <td><?php echo $value['name'];?></td>
+                    <td><?php echo $value['email'];?></td>
+                    <td>
+                    <a href="index.php" class="btn btn-info">Edit</a>
+                    <a href="index.php" class="btn btn-danger">Delete</a>
+                </td>
+                </tr>
+               
+                <?php
+            }
+            ?>
+        
         </table>
     </div>
 </body>

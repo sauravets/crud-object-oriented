@@ -58,11 +58,11 @@ else
 </div>
 <div class="form-group">
 	<label>Email:</label>
-	<input type="text" name="email" placeholder="Enter your mail" class="form-control"><br>
+	<input type="text" name="email" placeholder="Enter your mail" autocomplete="off" class="form-control"><br>
 </div>
 <div class="form-group">
 	<label>Password:</label>
-	<input type="text" name="pass" placeholder="Enter your password" class="form-control"><br>
+	<input type="password" autocomplete="new-password" name="pass" placeholder="Enter your password" class="form-control"><br>
 </div>
 <div class="form-group">
 	<label>Gender:</label><br>

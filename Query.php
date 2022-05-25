@@ -14,7 +14,8 @@ class Query
 		if(isset($_POST['submit'])){
 			$name = $_POST['name'];
 			$email = $_POST['email'];
-			$sql = "INSERT INTO `users`(`name`,`email`)VALUES('$name','$email')";
+			$pass = $_POST['pass'];
+			$sql = "INSERT INTO `users`(`name`,`email`,`pass`)VALUES('$name','$email','$pass')";
 			$query = $this->conn->query($sql);
 			if($query){
 				echo 'Record inserted successfully';
@@ -66,8 +67,9 @@ class Query
 		if(isset($_POST['update'])){
 			$name = $_POST['name'];
 			$email = $_POST['email'];
+			$pass = $_POST['pass'];
 			$editid = $_POST['hid'];
-			$sql = "UPDATE users set name='$name',email = '$email' WHERE id='$editid' ";
+			$sql = "UPDATE users set name='$name',email = '$email',pass = '$pass' WHERE id='$editid' ";
 			$query = $this->conn->query($sql);
 			if($query){
 				echo 'Record updated successfully';

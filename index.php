@@ -35,6 +35,10 @@ if(isset($_GET['editid'])){
 	<label>Email</label>
 	<input type="text" name="email" class="form-control" value ="<?php echo $myrecord['email']; ?>" placeholder="enter your mail"><br>
 </div>
+<div class="form-group">
+	<label>Password:</label>
+	<input type="text" name="pass"  class="form-control" value="<?php echo $myrecord['pass'];?>"><br>
+</div>
 
 	<input type="hidden" name="hid" value="<?php echo $myrecord['id'];?>">
 	<div class="form-group">
@@ -49,13 +53,36 @@ else
 
 <form action="index.php" method="POST">
 	<div class="form-group">
-	<label>Name</label>
-	<input type="text" name="name" placeholder="enter your name" class="form-control"><br>
+	<label>Name:</label>
+	<input type="text" name="name" placeholder="Enter your name" class="form-control"><br>
 </div>
 <div class="form-group">
-	<label>Email</label>
-	<input type="text" name="email" placeholder="enter your mail" class="form-control"><br>
+	<label>Email:</label>
+	<input type="text" name="email" placeholder="Enter your mail" class="form-control"><br>
 </div>
+<div class="form-group">
+	<label>Password:</label>
+	<input type="text" name="pass" placeholder="Enter your password" class="form-control"><br>
+</div>
+<div class="form-group">
+	<label>Gender:</label><br>
+	<label>Male</label>
+	<input type="radio" name="gender" id="male" value="male" checked ><br>
+	<label>Female</label>
+	<input type="radio" name="gender" id="female"  value="female"><br>
+</div>
+<!-- <div class="form-group">
+	<label>Choose your skills:</label><br>
+	<label>HTML</label>
+	<input type="checkbox" name="skills" id="html" checked ><br>
+	<label>CSS</label>
+	<input type="checkbox" name="skills" id="css"><br>
+	<label>PHP</label>
+	<input type="checkbox" name="skills" id="php"><br>
+</div> -->
+<!-- <div class="form-group">
+<input type="image" src="img_submit.gif" alt="image" width="48" height="48"> 
+</div> -->
 <div class="form-group">
 	<button type="submit" name="submit" class="btn btn-info">Submit</button>
 </div>
@@ -70,6 +97,7 @@ else
 		<th>Sno.</th>
 		<th>Name</th>
 		<th>Email</th>
+		<th>Password</th>
 		<th>Action</th>
 	</tr>
 	</thead>
@@ -86,6 +114,7 @@ else
 					<td><?php echo $sno++;?></td>
 					<td><?php echo $value['name'];?></td>
 					<td><?php echo $value['email'];?></td>
+					<td><?php echo $value['pass'];?></td>
 					<td>
 					<a href = "index.php?editid=<?php echo $value['id'];?>" class="btn btn-info">edit</a>
 					<a href = "index.php?deleteid=<?php echo $value['id'];?>" class="btn btn-danger">delete</a>
